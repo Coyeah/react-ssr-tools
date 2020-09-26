@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "target": "esnext",
+    "lib": [
+      "esnext",
+      "DOM"
+    ],
+    "declaration": true,
+    "jsx": "react",
+    "strict": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "rootDir": "./src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "baseUrl": "."
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "scripts"
+  ],
+  "types": [
+    "node",
+    "react",
+    "react-dom",
+    "react-router-dom",
+    "serialize-javascript"
+  ]
+}
