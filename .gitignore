@@ -107,3 +107,8 @@ dist
 dist
 lib
 esm
+types
+
+# editor
+.idea
+.vscode

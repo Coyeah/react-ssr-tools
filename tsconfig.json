@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
     "target": "esnext",
     "lib": [
       "esnext",
@@ -8,35 +7,17 @@
     ],
     "declaration": true,
     "jsx": "react",
+    "sourceMap": false,
     "strict": true,
+    "moduleResolution": "node",
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "rootDir": "./src",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "removeComments": true,
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "allowJs": true,
-    "baseUrl": "."
+    "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */
   },
   "include": [
     "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "scripts"
-  ],
-  "types": [
-    "node",
-    "react",
-    "react-dom",
-    "react-router-dom",
-    "serialize-javascript"
   ]
 }

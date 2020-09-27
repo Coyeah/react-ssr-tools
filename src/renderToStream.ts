@@ -1,6 +1,6 @@
-import { Global } from './types/global';
-import { Config } from './types/config';
-import renderTemplate from './renderTemplate';
+import { Global } from './interface/global';
+import { Config } from './interface/config';
+import { renderTemplate } from './renderTemplate';
 import { getVersion, ReadableString } from './utils';
 import { useCdn } from './useCdn';
 

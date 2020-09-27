@@ -1,5 +1,5 @@
 module.exports = function (api) {
-	const isEs = process.env.BABEL_ENV === 'es'
+	const isEs = process.env.BABEL_ENV === 'esm'
 	api.cache(true)
 	
 	const presets = [

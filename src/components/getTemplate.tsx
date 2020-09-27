@@ -1,13 +1,13 @@
 import React from 'react';
 import serialize from 'serialize-javascript';
-import { Config } from '../types/config';
+import { Config } from '../interface/config';
 
 const defaultComponent: React.FC = (props) => <>{props.children}</>;
 const getCommonNode = (TargetComponent: React.FC): React.FC => (
 	props,
 ) => (props.children ? <TargetComponent {...props} /> : null);
 
-export const getTemplate = (
+const getTemplate = (
 	__isBrowser__?: boolean,
 	commonNode: React.FC = defaultComponent,
 ): React.FC<TemplateProps> => (props) => {

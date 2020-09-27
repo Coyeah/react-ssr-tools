@@ -1,6 +1,6 @@
 import React, { PureComponent, ComponentClass } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { FC } from '../types/fc';
+import { FC } from '../interface/fc';
 
 let _this: any = null;
 let routerChanged = false;
@@ -10,7 +10,7 @@ const popStateFn = (e: PopStateEvent) => {
 	routerChanged = true;
 };
 
-export function getInitialProps(WrappedComponent: FC): ComponentClass {
+function getInitialProps(WrappedComponent: FC): ComponentClass {
 	class GetInitialPropsClass extends PureComponent<RouteComponentProps, IState> {
 		state = {
 			extraProps: {},

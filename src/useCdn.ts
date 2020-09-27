@@ -2,7 +2,7 @@ import Shell from 'shelljs';
 import axios from 'axios';
 import fs from 'fs';
 import { resolveDir, logGreen } from './utils';
-import { ServerJs } from './types/config';
+import { ServerJs } from './interface/config';
 
 const getServerBundle = async (cdn: string, path: string): Promise<ServerJs> => {
 	logGreen(`get serverBundle from CDN file ${cdn}`)

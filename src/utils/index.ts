@@ -5,7 +5,7 @@ import {
 	renderToNodeStream,
 	renderToString as reactRenderToString,
 } from 'react-dom/server';
-import { Config } from '../types/config';
+import { Config } from '../interface/config';
 
 export const getVersion = (str: string) => {
 	try {

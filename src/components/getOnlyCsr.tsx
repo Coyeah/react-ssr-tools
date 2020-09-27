@@ -1,7 +1,7 @@
 // 通过使用该HOC使得组件只在客户端进行渲染
 import React, { PureComponent, ComponentType, FC } from 'react';
 
-export function getOnlyCsr(WrappedComponent: FC): ComponentType {
+function getOnlyCsr(WrappedComponent: FC): ComponentType {
 	class OnlyCsrClass extends PureComponent<unknown, IState> {
 		state = {
 			isCsr: false,
