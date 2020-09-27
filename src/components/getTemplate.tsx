@@ -18,7 +18,7 @@ const getTemplate = (
 			app: {
 				config: {injectCss, injectScript},
 			},
-		} = props.templateData;
+		} = props.templateData || {};
 		return (
 			<html lang="en">
 			<head>
@@ -39,9 +39,8 @@ const getTemplate = (
 			{serverData && (
 				<script
 					dangerouslySetInnerHTML={{
-						__html: `window.__USE_SSR__=true; window.__INITIAL_DATA__ =${serialize(
-							serverData,
-						)}`, // 使用pathname作为组件初始化数据的隔离，防止props污染
+						// 使用pathname作为组件初始化数据的隔离，防止props污染
+						__html: `window.__USE_SSR__=true; window.__INITIAL_DATA__ =${serialize(serverData || {})}`,
 					}}
 				/>
 			)}

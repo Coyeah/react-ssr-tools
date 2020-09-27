@@ -6,7 +6,7 @@ export const renderTemplate = async (ctx: any, config: Config) => {
 	const {useCDN, template} = config;
 	const isLocal = process.env.NODE_ENV === 'development' || config.env === 'local'; // 标志非正式环境
 	const props = {
-		layoutData: ctx,
+		templateData: ctx,
 		ctx
 	};
 	let TEMPLATE_PATH = template;
