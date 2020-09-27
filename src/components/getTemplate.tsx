@@ -2,7 +2,7 @@ import React from 'react';
 import serialize from 'serialize-javascript';
 import { Config } from '../interface/config';
 
-const defaultComponent: React.FC = (props) => <>{props.children}</>;
+export const defaultComponent: React.FC = (props) => <>{props.children}</>;
 const getCommonNode = (TargetComponent: React.FC): React.FC => (
 	props,
 ) => (props.children ? <TargetComponent {...props} /> : null);
