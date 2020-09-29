@@ -11,10 +11,8 @@ export {
 }
 
 import getComponent from './getComponent';
-import getIndex from './getIndex';
 
 /* 模块级别 */
 export {
 	getComponent,
-	getIndex,
 }

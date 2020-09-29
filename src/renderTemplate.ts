@@ -1,8 +1,9 @@
+import { Context } from 'koa';
 import { Config } from './interface/config';
 import { getVersion, reactToStream } from './utils';
 import { useCdn } from './useCdn';
 
-export const renderTemplate = async (ctx: any, config: Config) => {
+export const renderTemplate = async (ctx: Context, config: Config) => {
 	const {useCDN, template} = config;
 	const isLocal = process.env.NODE_ENV === 'development' || config.env === 'local'; // 标志非正式环境
 	const props = {

@@ -1,6 +1,6 @@
 {
   "name": "react-ssr-tools",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "react 的服务端渲染工具🔧",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -40,6 +40,7 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.11.2",
+    "@types/koa": "^2.11.4",
     "@types/node": "^14.11.2",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
@@ -47,6 +48,7 @@
     "@types/serialize-javascript": "^4.0.0",
     "@types/shelljs": "^0.8.8",
     "babel-plugin-add-module-exports": "^1.0.4",
+    "koa": "^2.13.0",
     "react": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "standard-version": "^9.0.0",

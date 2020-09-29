@@ -1,3 +1,4 @@
+import { Context } from 'koa';
 import { RouteItem } from './route';
 
 export interface Config {
@@ -14,5 +15,5 @@ export interface Config {
 }
 
 export interface ServerJs {
-	(ctx: any): Promise<React.ReactElement>;
+	(ctx: Context): Promise<React.ReactElement>;
 }

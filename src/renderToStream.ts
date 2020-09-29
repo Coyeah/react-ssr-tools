@@ -1,3 +1,4 @@
+import { Context } from 'koa';
 import { Global } from './interface/global';
 import { Config } from './interface/config';
 import { renderTemplate } from './renderTemplate';
@@ -8,7 +9,7 @@ const mergeStream = require('merge-stream');
 
 declare const global: Global;
 
-export const renderToStream = async (ctx: any, config: Config) => {
+export const renderToStream = async (ctx: Context, config: Config) => {
 	// 兼容express和koa的query获取
 	const csr = ctx.request?.query?.csr ? ctx.request.query.csr : false;
 	
