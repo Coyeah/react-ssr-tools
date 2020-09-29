@@ -4,11 +4,11 @@ import { Config } from '../interface/config';
 
 const getTemplate = (): React.FC<TemplateProps> => (props) => {
 	const {
-		serverData = {},
+		serverData,
 		app: {
 			config: {
 				injectScript, injectCss
-			} = {}
+			}
 		}
 	} = props.templateData;
 	
@@ -21,7 +21,6 @@ const getTemplate = (): React.FC<TemplateProps> => (props) => {
 				content="width=device-width, initial-scale=1, shrink-to-fit=no"
 			/>
 			<meta name="theme-color" content="#000000"/>
-			<title>React App</title>
 			{injectCss &&
 			injectCss.map((item) => (
 				<link rel="stylesheet" href={item} key={item}/>
@@ -48,6 +47,8 @@ const getTemplate = (): React.FC<TemplateProps> => (props) => {
 		</html>
 	)
 };
+
+export const Template = getTemplate();
 
 export default getTemplate;
 

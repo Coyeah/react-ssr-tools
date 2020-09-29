@@ -22,6 +22,10 @@ export const renderTemplate = async (ctx: Context, config: Config) => {
 		delete require.cache[TEMPLATE_PATH];
 	}
 	
+	if (!!TEMPLATE_PATH) {
+		TEMPLATE_PATH = require('./components/getTemplate').Template;
+	}
+	
 	const Template =
 		typeof TEMPLATE_PATH === 'string'
 			? require(TEMPLATE_PATH).default

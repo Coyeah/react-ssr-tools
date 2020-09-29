@@ -11,8 +11,10 @@ export {
 }
 
 import getComponent from './getComponent';
+import getServerRender from './getServerRender';
 
 /* 模块级别 */
 export {
 	getComponent,
+	getServerRender,
 }

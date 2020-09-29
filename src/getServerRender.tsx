@@ -8,7 +8,7 @@ import getTemplate, { TemplateProps } from './components/getTemplate';
 import { EmptyComponent } from './utils/components';
 import { RouteItem } from './interface/route';
 
-const Template = getTemplate();
+export const GlobalTemplate = getTemplate();
 
 const getServerRender = (options: Partial<RenderOptions>): ServerRender => async (ctx: Context) => {
 	const {
@@ -25,13 +25,13 @@ const getServerRender = (options: Partial<RenderOptions>): ServerRender => async
 	// @ts-ignore
 	const templateData = ctx as TemplateProps['templateData'];
 	return (
-		<WrappedComponent>
-			<StaticRouter location={ctx.req.url} context={serverData}>
-				<Template templateData={templateData}>
+		<StaticRouter location={ctx.req.url} context={serverData}>
+			<GlobalTemplate templateData={templateData}>
+				<WrappedComponent>
 					<ActiveComponent {...serverData}/>
-				</Template>
-			</StaticRouter>
-		</WrappedComponent>
+				</WrappedComponent>
+			</GlobalTemplate>
+		</StaticRouter>
 	)
 }
 
@@ -42,5 +42,4 @@ export type ServerRender = (ctx: Context) => Promise<JSX.Element>;
 export interface RenderOptions {
 	routes: RouteItem[];
 	WrappedComponent: React.FC<any>;
-	store?: any;
 }
