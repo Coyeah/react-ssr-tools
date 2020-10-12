@@ -1,4 +1,4 @@
-import { Context, Middleware } from 'koa';
+import { Middleware } from 'koa';
 import { Config } from '../interface/config';
 const { match } = require('path-to-regexp');
 

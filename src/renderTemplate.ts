@@ -1,5 +1,5 @@
 import { Context } from 'koa';
-import { Config } from './interface/config';
+import { Config, ServerJs } from './interface/config';
 import { getVersion, reactToStream } from './utils';
 import { useCdn } from './useCdn';
 
@@ -10,7 +10,7 @@ export const renderTemplate = async (ctx: Context, config: Config) => {
 		templateData: ctx,
 		ctx
 	};
-	let TEMPLATE_PATH = template;
+	let TEMPLATE_PATH: ServerJs | string = template;
 	
 	if (useCDN && typeof template === 'string') {
 		const version = getVersion(template);
@@ -20,10 +20,6 @@ export const renderTemplate = async (ctx: Context, config: Config) => {
 	
 	if (isLocal && typeof TEMPLATE_PATH === 'string') {
 		delete require.cache[TEMPLATE_PATH];
-	}
-	
-	if (!!TEMPLATE_PATH) {
-		TEMPLATE_PATH = require('./components/getTemplate').Template;
 	}
 	
 	const Template =
