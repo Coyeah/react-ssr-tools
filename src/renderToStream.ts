@@ -1,20 +1,28 @@
 import { Context } from 'koa';
-import { Global } from './interface/global';
-import { Config } from './interface/config';
-import { renderTemplate } from './renderTemplate';
-import { getVersion, ReadableString } from './utils';
+import renderTemplate from './renderTemplate';
 import { useCdn } from './useCdn';
+import { getVersion, ReadableString } from './utils';
 
 const mergeStream = require('merge-stream');
 
+import { RenderFuncOptions } from './interface/render';
+import { Global } from './interface/global';
+
 declare const global: Global;
 
-export const renderToStream = async (ctx: Context, config: Config) => {
-	// 兼容express和koa的query获取
-	const csr = ctx.request?.query?.csr ? ctx.request.query.csr : false;
+export const renderToStream = async (ctx: RenderFuncOptions) => {
+	const {context, config} = ctx;
+	
+	let csr = false;
+	if (!!context) {
+		// 兼容express和koa的query获取
+		csr = (context as Context).request?.query?.csr
+			? (context as Context).request.query.csr
+			: false;
+	}
 	
 	if (config.type !== 'ssr' || csr) {
-		const stream = await renderTemplate(ctx, config);
+		const stream = await renderTemplate(ctx);
 		const doctypeStream = new ReadableString('<!DOCTYPE html>');
 		return mergeStream(doctypeStream, stream);
 	}
@@ -56,6 +64,6 @@ export const renderToStream = async (ctx: Context, config: Config) => {
 		const doctypeStream = new ReadableString('<!DOCTYPE html>');
 		return mergeStream(doctypeStream, stream);
 	}
-}
+};
 
 export default renderToStream;

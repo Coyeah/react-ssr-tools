@@ -1,23 +1,25 @@
 {
   "name": "react-ssr-tools",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "react 的服务端渲染工具🔧",
+  "source": "src/index.ts",
   "main": "lib/index.js",
   "module": "esm/index.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "types/**/*",
-    "lib/**/*",
-    "esm/**/*"
+    "lib",
+    "esm"
   ],
   "sideEffects": false,
   "scripts": {
-    "watch:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir esm --watch --extensions '.ts,.tsx,.js'",
-    "watch:lib": "NODE_ENV=production BABEL_ENV=lib babel src --out-dir lib --watch --extensions '.ts,.tsx,.js'",
+    "clean": "rimraf lib esm",
+    "watch:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir esm --watch --extensions '.ts,.tsx'",
+    "watch:lib": "NODE_ENV=production BABEL_ENV=lib babel src --out-dir lib --watch --extensions '.ts,.tsx'",
     "watch": "npm run watch:esm && npm run watch:lib",
-    "build:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir esm --extensions '.ts,.tsx,.js'",
-    "build:lib": "NODE_ENV=production BABEL_ENV=lib babel src --out-dir lib --extensions '.ts,.tsx,.js'",
-    "build:types": "tsc --outDir ./types",
-    "build": "npm run build:types && npm run build:esm && npm run build:lib",
+    "build:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir esm --extensions '.ts,.tsx'",
+    "build:lib": "NODE_ENV=production BABEL_ENV=lib babel src --out-dir lib --extensions '.ts,.tsx'",
+    "build:types": "tsc --outDir ./lib",
+    "build": "npm run clean && npm run build:types && npm run build:esm && npm run build:lib",
     "release": "standard-version"
   },
   "repository": {
@@ -56,6 +58,7 @@
     "koa": "^2.13.0",
     "react": "^16.13.1",
     "react-router-dom": "^5.2.0",
+    "rimraf": "^3.0.2",
     "standard-version": "^9.0.0",
     "typescript": "^4.0.3"
   },

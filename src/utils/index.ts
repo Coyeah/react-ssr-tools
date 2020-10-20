@@ -32,7 +32,7 @@ export const reactToStream = (
 	config: Config,
 ) => {
 	const { baseDir } = config;
-	const BASE_DIR = baseDir || process.cwd();
+	// const BASE_DIR = baseDir || process.cwd();
 	if (config.useReactToString) {
 		return reactRenderToString(createElement(Component, props));
 	} else {

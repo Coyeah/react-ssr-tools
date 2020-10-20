@@ -1,5 +1,5 @@
-import { Context } from 'koa';
 import { RouteItem } from './route';
+import { RenderFuncOptions } from './render';
 
 export interface Config {
 	env?: string;
@@ -15,5 +15,5 @@ export interface Config {
 }
 
 export interface ServerJs {
-	(ctx: Context): Promise<React.ReactElement>;
+	(ctx: RenderFuncOptions): Promise<React.ReactElement>;
 }

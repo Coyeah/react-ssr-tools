@@ -1,16 +1,14 @@
 import React from 'react';
-import serialize from 'serialize-javascript';
 import { Config } from '../interface/config';
+import serialize from 'serialize-javascript';
 
-const getTemplate = (): React.FC<TemplateProps> => (props) => {
+export const getTemplate = (): React.FC<TemplateProps> => props => {
 	const {
 		serverData,
-		app: {
-			config: {
-				injectScript, injectCss
-			}
+		config: {
+			injectCss, injectScript
 		}
-	} = props.templateData;
+	} = props;
 	
 	return (
 		<html lang="en">
@@ -46,18 +44,13 @@ const getTemplate = (): React.FC<TemplateProps> => (props) => {
 		</body>
 		</html>
 	)
-};
+}
 
 export const Template = getTemplate();
-
 export default getTemplate;
 
 export interface TemplateProps {
-	templateData: {
-		app: {
-			config: Config;
-		};
-		serverData: any;
-	}
+	config: Config;
+	serverData: unknown;
 }
 
