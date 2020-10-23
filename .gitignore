@@ -103,11 +103,12 @@ dist
 # TernJS port file
 .tern-port
 
-# dist
+# out-dir
 dist
 lib
 esm
 types
+webpack-plugin
 
 # editor
 .idea

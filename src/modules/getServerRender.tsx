@@ -1,10 +1,10 @@
 import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import getComponent from './getComponent';
-import getTemplate from './components/getTemplate';
-import { EmptyComponent } from './utils/components';
-import { RouteItem } from './interface/route';
-import { RenderFuncOptions } from './interface/render';
+import getTemplate from '../components/getTemplate';
+import { EmptyComponent } from '../utils/components';
+import { RouteItem } from '../interface/route';
+import { RenderFuncOptions } from '../interface/render';
 
 export const GlobalTemplate = getTemplate();
 

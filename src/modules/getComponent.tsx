@@ -1,7 +1,7 @@
 import React from 'react';
 import { matchPath, RouteProps } from 'react-router-dom';
-import { FC } from './interface/fc';
-import { RouteItem } from './interface/route';
+import { FC } from '../interface/fc';
+import { RouteItem } from '../interface/route';
 
 const NotFound: FC = () => <div>路由查询404</div>
 

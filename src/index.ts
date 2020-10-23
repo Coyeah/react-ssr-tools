@@ -10,8 +10,8 @@ export {
 	getOnlyCsr,
 }
 
-import getComponent from './getComponent';
-import getServerRender from './getServerRender';
+import getComponent from './modules/getComponent';
+import getServerRender from './modules/getServerRender';
 
 /* 模块级别 */
 export {
