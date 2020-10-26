@@ -1,5 +1,5 @@
 {
-  "name": "ssr-with-single-node",
+  "name": "ssr-react-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -77,6 +77,7 @@
     "koa-static": "^5.0.0",
     "mobx": "^6.0.1",
     "mobx-react": "^7.0.0",
+    "path-to-regexp": "^6.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",

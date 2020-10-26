@@ -12,9 +12,11 @@ export {
 
 import getComponent from './modules/getComponent';
 import getServerRender from './modules/getServerRender';
+import getRender from './modules/getRender';
 
 /* 模块级别 */
 export {
 	getComponent,
 	getServerRender,
+	getRender,
 }

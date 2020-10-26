@@ -21,10 +21,5 @@ yarn add react-ssr-tools
 
 ## Documentations
 
-
-## Demo
-
-[ssr-react-demo](https://github.com/Coyeah/ssr-react-demo)
-
 ## License
 [MIT](LICENSE)

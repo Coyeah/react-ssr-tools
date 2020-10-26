@@ -1,16 +1,16 @@
 import { Context } from 'koa';
+import { renderToString, renderToNodeStream as renderToNodeStreamReact } from 'react-dom/server';
 import renderTemplate from './renderTemplate';
 import { useCdn } from './useCdn';
 import { getVersion, ReadableString } from './utils';
-
-const mergeStream = require('merge-stream');
-
 import { RenderFuncOptions } from './interface/render';
 import { Global } from './interface/global';
 
+const mergeStream = require('merge-stream');
+
 declare const global: Global;
 
-export const renderToStream = async (ctx: RenderFuncOptions) => {
+export const renderToStream = async (ctx: RenderFuncOptions, timelyRequire: boolean = true) => {
 	const {context, config} = ctx;
 	
 	let csr = false;
@@ -45,11 +45,15 @@ export const renderToStream = async (ctx: RenderFuncOptions) => {
 	
 	if (!global.renderToNodeStream) {
 		if (useReactToString) {
-			global.renderToNodeStream = require(BASE_DIR +
-				'/node_modules/react-dom/server').renderToString;
+			timelyRequire
+				? global.renderToNodeStream = require(BASE_DIR +
+				'/node_modules/react-dom/server').renderToString
+				: global.renderToNodeStream = renderToString;
 		} else {
-			global.renderToNodeStream = require(BASE_DIR +
-				'/node_modules/react-dom/server').renderToNodeStream;
+			timelyRequire
+				? global.renderToNodeStream = require(BASE_DIR +
+				'/node_modules/react-dom/server').renderToNodeStream
+				: global.renderToNodeStream = renderToNodeStreamReact;
 		}
 	}
 	
